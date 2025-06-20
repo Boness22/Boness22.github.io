@@ -9,17 +9,24 @@
     src: url(fonty/Poppins-ExtraBold.ttf);
     font-weight: bold;
 }
+
 html {
-          background: #414042;
+    background: #414042;
 }
+
 body {
-    font: 14px "Poppins";
+    font: 14px "Poppins", sans-serif;
     background: #f9f9f9;
     color: #414042;
     box-sizing: border-box;
     margin: 0;
-    padding: 100px 0px 0px 0px;
-    min-width: 960px;
+    padding: 100px 0 0 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
 }
 
 body > header {
@@ -29,19 +36,22 @@ body > header {
     color: white;
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     position: fixed;
     z-index: 1;
     top: 0;
+    flex-wrap: wrap;
+    padding: 0 10px;
 }
 
 #logo {
     height: 40px;
-    margin: auto 0 auto 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     background: url('obrazky/logo.png') no-repeat;
     background-size: 40px 40px;
+    margin: auto 0 auto 20px;
 }
 
 #logo > * {
@@ -70,11 +80,12 @@ nav ul {
     list-style-type: none;
     display: flex;
     align-items: center;
-    height: 100%;
+    flex-wrap: wrap;
+    padding: 0;
 }
 
 nav ul li {
-    padding: 0 25px;
+    padding: 0 15px;
     margin: 0 5px;
     font-size: 1em;
     line-height: 4.3em;
@@ -135,7 +146,6 @@ article section a {
 }
 
 footer {
-    box-sizing: border-box;
     text-align: center;
     height: 150px;
     color: white;
@@ -149,11 +159,13 @@ footer a {
     text-decoration: none;
 }
 
-.avatar{
-	float: right;
-	width: 300px;
-	padding-left: 10px;
-	filter: grayscale(1);
+.avatar {
+    float: right;
+    width: 300px;
+    padding-left: 10px;
+    filter: grayscale(1);
+    max-width: 100%;
+    height: auto;
 }
 
 .cistic {
@@ -207,6 +219,7 @@ footer a {
 
 #dovednosti {
     border-collapse: collapse;
+    width: 100%;
 }
 
 #reference img {
@@ -214,4 +227,54 @@ footer a {
     padding: 6px;
     box-shadow: 3px 3px 6px #999999;
     margin-right: 6px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* ========== RESPONSIVNÍ DESIGN ========== */
+@media (max-width: 768px) {
+    body {
+        padding-top: 120px;
+    }
+
+    body > header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+    }
+
+    nav ul li {
+        padding: 10px 0;
+        line-height: normal;
+    }
+
+    article {
+        padding: 20px;
+    }
+
+    .avatar {
+        float: none;
+        display: block;
+        margin: 0 auto 20px auto;
+    }
+
+    #logo {
+        margin: 0 auto;
+        background-position: left center;
+    }
+
+    #logo > * {
+        margin-left: 50px;
+    }
+
+    #dovednosti td {
+        display: block;
+        width: 100%;
+    }
 }
